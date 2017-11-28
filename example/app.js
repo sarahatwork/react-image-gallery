@@ -35,6 +35,20 @@ class App extends React.Component {
         renderItem: this._renderVideo.bind(this)
       },
       {
+        original: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Andrea_Pirlo_Juventus.jpg/220px-Andrea_Pirlo_Juventus.jpg',
+        thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Andrea_Pirlo_Juventus.jpg/220px-Andrea_Pirlo_Juventus.jpg',
+        imgSet: [
+          {
+            srcSet: 'https://www.thesun.co.uk/wp-content/uploads/2017/10/nintchdbpict000137869657.jpg?strip=all&w=708',
+            media : '(max-width: 1000px)',
+          },
+          {
+            srcSet: 'https://statics.sportskeeda.com/wp-content/uploads/2016/12/pirlo-ac-milan-1482679269-800.jpg',
+            media : '(min-width: 1000px)',
+          }
+        ]
+      },
+      {
         original: `${PREFIX_URL}1.jpg`,
         thumbnail: `${PREFIX_URL}1t.jpg`,
         originalClass: 'featured-slide',
