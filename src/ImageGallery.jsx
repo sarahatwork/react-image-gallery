@@ -879,7 +879,7 @@ export default class ImageGallery extends React.Component {
 
     return (
       <div className='image-gallery-image'>
-        <img
+        {/* <img
             src={item.original}
             alt={item.originalAlt}
             srcSet={item.srcSet}
@@ -887,7 +887,39 @@ export default class ImageGallery extends React.Component {
             title={item.originalTitle}
             onLoad={this.props.onImageLoad}
             onError={onImageError}
-        />
+        /> */}
+        {
+          item.srcSet ? (
+            <picture
+              onLoad={this.props.onImageLoad}
+              onError={onImageError}
+            >
+              {Object.keys(item.srcSet).map(breakpoint =>
+                  item.srcSet[breakpoint].srcSet && (
+                    <source
+                      key={breakpoint}
+                      media={item.media[breakpoint]}
+                      srcSet={item.srcSet[breakpoint].srcSet}
+                    />
+                  ))}
+              <img
+                alt={item.originalAlt}
+                src={item.srcSet[Object.keys(item.srcSet)[Object.keys(item.srcSet).length - 1]].src}
+              />
+            </picture>
+          ) : (
+            <img
+                src={item.original}
+                alt={item.originalAlt}
+                srcSet={item.srcSet}
+                sizes={item.sizes}
+                title={item.originalTitle}
+                onLoad={this.props.onImageLoad}
+                onError={onImageError}
+            />
+          )
+        }
+
         {
           item.description &&
             <span className='image-gallery-description'>
