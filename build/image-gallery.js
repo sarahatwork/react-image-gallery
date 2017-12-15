@@ -963,7 +963,8 @@ var ImageGallery = function (_React$Component) {
             onTouchEnd: _this6.props.onTouchEnd,
             onTouchStart: _this6.props.onTouchStart,
             onMouseOver: _this6.props.onMouseOver,
-            onMouseLeave: _this6.props.onMouseLeave
+            onMouseLeave: _this6.props.onMouseLeave,
+            role: _this6.props.onClick && 'button'
           },
           showItem ? renderItem(item) : _react2.default.createElement('div', { style: { height: '100%' } })
         );
